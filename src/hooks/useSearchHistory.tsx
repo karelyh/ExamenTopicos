@@ -6,12 +6,15 @@ export const useSearchHistory = () => {
   const addSearchTerm = (term: string) => {
     const trimmedTerm = term.trim();
     if (!trimmedTerm) return;
-    
+
     setHistory(prevHistory => {
-      if (prevHistory.includes(trimmedTerm)) {
-        return prevHistory;
-      }
-      return [trimmedTerm, ...prevHistory];
+      const normalized = trimmedTerm.toLowerCase();
+
+      const filtered = prevHistory.filter(
+        item => item.trim().toLowerCase() !== normalized
+      );
+
+      return [trimmedTerm, ...filtered];
     });
   };
 
