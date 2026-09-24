@@ -39,6 +39,12 @@
   border-radius: 14px;
   background: var(--bg);
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 52px 24px rgba(0, 0, 0, 0.08);
 }
 
 .book-card__cover {
@@ -72,6 +78,24 @@
   margin: 0;
   font-size: 13px;
   color: var(--text);
+}
+
+.no-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  background: var(--code-bg);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status-message {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--social-bg);
+  color: var(--text-h);
 }
 
 @media (max-width: 640px) {

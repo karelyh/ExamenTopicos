@@ -1,11 +1,6 @@
-import { useState } from 'react';
-
-export interface Book {
-  key: string;
-  title: string;
-  author_name?: string[];
-  cover_i?: number;
-}
+import {useState } from 'react';
+import {type Book } from '../types/booksTypes';
+import {searchBooksAPI } from '../services/useService';
 
 export const useBookSearch = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -16,10 +11,7 @@ export const useBookSearch = () => {
     setIsLoading(true);
     
     try {
-      const formattedQuery = query.trim().replace(/\s+/g, '+');
-      // Petición de búsqueda a la API
-      const response = await fetch(`https://openlibrary.org/search.json?q=${formattedQuery}`);
-      const data = await response.json();
+      const data = await searchBooksAPI(query);
       setBooks(data.docs || []);
     } catch (error) {
       console.error("Error al buscar libros:", error);

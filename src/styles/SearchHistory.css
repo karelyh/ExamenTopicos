@@ -13,13 +13,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0;
+  margin: 1;
   padding: 0;
   list-style: none;
 }
 
 .search-chip {
-  padding: 6px 12px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--social-bg);
@@ -27,10 +27,12 @@
   font: inherit;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .search-chip:hover {
   border-color: var(--accent-border);
+  transform: translateY(-2px)
 }
 
 .search-chip:focus-visible {

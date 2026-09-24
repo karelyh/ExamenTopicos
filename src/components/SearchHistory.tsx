@@ -11,16 +11,17 @@ export const SearchHistory: React.FC<SearchHistoryProps> = ({ history, onHistory
 
   return (
     <div className="search-history">
-      <h4>Búsquedas recientes:</h4>
-      <div className="chips-container">
+      <h4 className="search-history__title">Búsquedas recientes</h4>
+      <div className="search-history__list">
         {history.map((term, index) => (
-          <span
-            key={index}
-            className="chip"
+          <button
+            key={`${term}-${index}`}
+            type="button"
+            className="search-chip"
             onClick={() => onHistoryClick(term)}
           >
             {term}
-          </span>
+          </button>
         ))}
       </div>
     </div>

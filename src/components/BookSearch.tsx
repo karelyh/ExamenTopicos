@@ -18,8 +18,15 @@ export const BookSearch: React.FC = () => {
   };
 
   return (
-    <div className="book-search-container">
-      <h1>Buscador de Libros</h1>
+    <div className="book-search">
+      <header className="book-search__header">
+        <p className="book-search__kicker">Open Library</p>
+        <h1 className="book-search__title">Buscador de Libros</h1>
+        <p className="book-search__lead">
+          Escribe un título, revisa los resultados en tarjetas y conserva cada búsqueda como un chip.
+        </p>
+      </header>
+
       <SearchBar onSearch={handleSearch} />
       <SearchHistory history={history} onHistoryClick={handleSearch} />
       <BookResults books={books} isLoading={isLoading} />

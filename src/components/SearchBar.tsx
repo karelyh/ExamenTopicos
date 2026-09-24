@@ -11,18 +11,28 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(inputValue);
-    setInputValue(''); 
+    setInputValue('');
   };
 
   return (
     <form className="search-bar" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Buscar libros..."
-      />
-      <button type="submit">Buscar</button>
+      <label className="search-bar__label" htmlFor="book-search-input">
+        Buscar por título o autor
+      </label>
+
+      <div className="search-bar__row">
+        <input
+          id="book-search-input"
+          className="search-bar__input"
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Ej. Harry Potter, Minions,"
+        />
+        <button className="search-bar__button" type="submit">
+          Buscar
+        </button>
+      </div>
     </form>
   );
 };

@@ -8,7 +8,6 @@ export const useSearchHistory = () => {
     if (!trimmedTerm) return;
     
     setHistory(prevHistory => {
-      // No repetir un chip si esa búsqueda ya existe en el historial
       if (prevHistory.includes(trimmedTerm)) {
         return prevHistory;
       }
